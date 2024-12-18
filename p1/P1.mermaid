@@ -1,0 +1,58 @@
+   classDiagram
+    RelationUserChild <|-- User
+    Tap <|-- User
+    Tap <|-- Child
+    RelationUserChild <|-- Child
+    RelationUserChild <|-- Rol
+    Tap <|-- Status
+    Child <|-- Treatment
+
+   
+   class RelationUserChild {
+        -int user_id
+        -int child_id
+        -int rol_id
+    }
+
+    class User{
+        -int id
+        -varchar(20) username
+        -varchar(20) password
+        -varchar(50) email
+        -int id_rol
+        +Consultarinfants(): void
+        +iniciarSessio(): boolean
+    }
+
+    class Tap{
+        -int id
+        -int child_id
+        -int user_id
+        -int status_id
+        -init datetime
+        -end datetime
+    }
+
+    
+    class Child{
+        -int id
+        -varchar(50) childname
+        -int sleep_average
+        -int treatment_id
+        -int time
+    }
+
+    class Rol{
+        -int id
+        -int type_rol
+    }
+
+    class Status{
+        -int id
+        -varchar(40) name
+    }
+
+    class Treatment{
+        -int id
+        -varchar(11) name
+    }
