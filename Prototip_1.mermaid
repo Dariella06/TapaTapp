@@ -1,0 +1,8 @@
+flowchart TD
+    A[Client View\nInput username] -->|Envia dades username| B[Client DAO User\ngetUserByUsername]
+    B -->|Petición HTTP GET username| C[Servidor\nWebservice]
+    B -->|Dades processades| E[Client View\nShow Info User if exists]
+    C -->|Consulta DAO User| D[Server DAO User\ngetUserByUsername]
+    C -->|Resposta HTTP amb Json User if exists| B
+    D -->|Respon Objecte User if exists| C
+    
