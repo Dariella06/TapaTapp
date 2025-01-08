@@ -2,6 +2,6 @@
 
 ¡HELLOOOOOOOO! ¿Cómo estás?
 
-[Descripció de proyectes](archivo.md)
+[Requeriments tècnics](archivo.md)
 
 [Requeriments Tecnics](Reque.md)
