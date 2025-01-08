@@ -4,4 +4,4 @@
 
 [Requeriments tècnics](archivo.md)
 
-[Requeriments Tecnics](Reque.md)
+[Requeriments tècnics](Reque.md)
