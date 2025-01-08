@@ -2,6 +2,6 @@
 
 ¡HELLOOOOOOOO! ¿Cómo estás?
 
-[Requeriments tècnics](archivo.md)
+[Descripció del Projecte TapatApp](archivo.md)
 
 [Requeriments tècnics](Reque.md)
