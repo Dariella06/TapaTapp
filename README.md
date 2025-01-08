@@ -2,5 +2,5 @@
 
 ¡HELLOOOOOOOO! ¿Cómo estás?
 
-[Descripción](archivo.md)
-
+[Descripció](archivo.md)
+[Requeriments](Reque.md)
