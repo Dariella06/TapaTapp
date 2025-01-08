@@ -3,4 +3,5 @@
 ¡HELLOOOOOOOO! ¿Cómo estás?
 
 [Descripció](archivo.md)
-[Requeriments](Reque.md)
+
+[Requeriments Tecnics](Reque.md)
