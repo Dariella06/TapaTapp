@@ -17,7 +17,7 @@ listUsers= [
     User(2,"user2", "123", "user2@proven.cat"),
     User(3,"admin","12","admin@proven.cat"),
     User(4,"admin2","12"),
-    User(5,"Dariella", "2006", "dariella@gmail.com"),
+    User(5,"Dariella", "2006", "dariella.llosa@gmail.com"),
 ]
 
 class DAOUsers:
@@ -54,7 +54,7 @@ def hello():
 @app.route('/tapatapp/getuser', methods=['GET'])
 def getUser():
     n = str(request.args.get('name'))
-    email = str(request.args.get('email'))
+    email = str(request.args.get('mail'))
     return "Hello Word!!" + " Nom:" + n + " Email:" + email
 
 
