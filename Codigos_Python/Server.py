@@ -53,8 +53,8 @@ def hello():
 
 @app.route('/tapatapp/getuser', methods=['GET'])
 def getUser():
-    n = request.args.get('name')
-    email = request.args.get('email')
+    n = str(request.args.get('name'))
+    email = str(request.args.get('email'))
     return "Hello Word!!" + " Nom:" + n + " Email:" + email
 
 
