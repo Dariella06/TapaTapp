@@ -57,6 +57,9 @@ def getUser():
     email = str(request.args.get('mail'))
     return "Hello Word!!" + " Nom:" + n + " Email:" + email
 
+@app.route('/prototip/getuser/<string:username>', methods=['GET'])
+def prototipGetuser(username):
+    return "Prototip 1; user:" + username
 
 if __name__ == '__main__':
      app.run(debug=True,host="0.0.0.0",port="10050")
