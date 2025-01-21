@@ -39,7 +39,7 @@ else:
 
 app = Flask(__name__)
 
-@app.route('/proto1/getdata/<string:param1>', methods=['GET'])
+'''@app.route('/proto1/getdata/<string:param1>', methods=['GET'])
 def getData(param1):
     return "Aquest és el servei /proto1/getdata/ amb parametre=" + param1
 
@@ -48,7 +48,12 @@ def hello():
     prova=request.args.get('prova')
     if(prova):
         return "Hello World Param=" + prova
-    return "Hello World"
+    return "Hello World" ESTO ES UN COMENTARIO PARA QUE NO INTERFIERA'''
+
+@app.route('/tapatap/getuser', methods=['GET'])
+def getUser():
+    return "Hello Word!!"
+
 
 if __name__ == '__main__':
      app.run(debug=True,host="0.0.0.0",port="10050")
