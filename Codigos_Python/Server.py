@@ -39,7 +39,7 @@ else:
     print("No trobat")
 
 app = Flask(__name__)
-
+'''ESTO LO COMENTE PORQUE POR AHORA NO NOS SIRVE'''
 '''@app.route('/proto1/getdata/<string:param1>', methods=['GET'])
 def getData(param1):
     return "Aquest és el servei /proto1/getdata/ amb parametre=" + param1
