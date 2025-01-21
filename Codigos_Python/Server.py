@@ -50,7 +50,7 @@ def hello():
         return "Hello World Param=" + prova
     return "Hello World" ESTO ES UN COMENTARIO PARA QUE NO INTERFIERA'''
 
-@app.route('/tapatap/getuser', methods=['GET'])
+@app.route('/tapatapp/getuser', methods=['GET'])
 def getUser():
     return "Hello Word!!"
 
