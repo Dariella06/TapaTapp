@@ -10,7 +10,6 @@
 
 [Http Request](Request.md)
 
-### Definición de los EndPoints del WebService
 ## Definició dels EndPoints del Servei Web:
 Un endpoint d'un servei web és una URL que proporciona un punt d'accés a una funció o recurs específic del servei web. 
 
