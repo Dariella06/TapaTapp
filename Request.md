@@ -25,6 +25,17 @@ El **body** de la resposta conté les dades que el servidor vol enviar al client
 - **JSON**: Quan s'està treballant amb **API RESTful**, el cos sovint serà un objecte o array **JSON**.
 - **Binari**: Quan es carrega un fitxer, el cos contindrà les dades binàries d'aquest fitxer (per exemple, una imatge o un document).
 
+### HTTP Request (Solicitud HTTP):
+ - **Método**: Indica la acción (como GET, POST).
+- **URL**: Es la dirección del recurso.
+- **Encabezados**: Información adicional (como tipo de contenido o cookies).
+- **Cuerpo (opcional)**: Datos que el cliente envía al servidor (como en un formulario).
+
+### Ejemplo_Request:
+GET /productos/123 HTTP/1.1
+Host: www.ejemplo.com
+
+
 # GET request
 GET /index.html HTTP/1.1
 Host: www.example.com

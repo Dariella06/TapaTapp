@@ -39,6 +39,17 @@ Content-Length: 45
   "username": "usuari",
   "password": "1234"
 }
+### HTTP Response (Respuesta HTTP):
+- **Código de estado**: Indica el resultado (ej. 200 OK o 404 Not Found).
+- **Encabezados**: Información adicional sobre la respuesta.
+- **Cuerpo**: Los datos solicitados (como HTML, JSON, etc.).
+
+## Ejemplo_Response:
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{"id":123, "nombre":"Producto"}
+
 
 ### Exemple de resposta JSON:
 ```json
