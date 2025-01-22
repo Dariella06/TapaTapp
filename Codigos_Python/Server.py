@@ -38,6 +38,19 @@ if(u):
 else:
     print("No trobat")
 
+@app.route('/DaOUser/getuser', methods=['GET'])
+def getUser():
+    username = str(request.args.get('username'))
+    
+    if username:  
+        user = dao_users.getUserByUsername(username)  
+        if user:
+            return f"Hello Word!! Nom: {user.username} Email: {user.email}"
+        else:
+            return "User not found", 404
+    else:
+        return "Username parameter is missing", 400
+
 app = Flask(__name__)
 '''ESTO LO COMENTE PORQUE POR AHORA NO NOS SIRVE'''
 '''@app.route('/proto1/getdata/<string:param1>', methods=['GET'])
