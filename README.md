@@ -21,3 +21,22 @@ Un endpoint d'un servei web és una URL que proporciona un punt d'accés a una f
 - **Respostes**: Format, estructura i codis d'estat (200, 404, 500, etc.).
 - **Seguretat**: Autenticació o autorització requerida (si aplica)
 
+## Ejemplos:
+GET /users HTTP/1.1
+Host: api.ejemplo.com
+
+- **Respuesta**:
+HTTP/1.1 200 OK
+Content-Type: application/json
+[
+  {
+    "id": 1,
+    "name": "Juan Pérez",
+    "email": "juan@example.com"
+  },
+  {
+    "id": 2,
+    "name": "Ana López",
+    "email": "ana@example.com"
+  }
+]
