@@ -30,7 +30,7 @@ Host: http://192.168.56.1:10050
 
 | Descripció  | End-point     | Method     |Tipus de petició|Parametres|
 | :---        |  :---        |  :---        |  :---         |  :---     |  
-| Obtenir les dades del usuari  | /Prototip_1/getuser|GET | application/json   |  UserName (string) | 
+| Obtenim dades del usuari  | /Prototip_1/getuser|GET | application/json   |  UserName/Nom-String | 
 
 Primer afegir tot el codi de la resposta posible json de sortida.
 Si la petició és GET afegirem URL per provar totes les possibles sortides que tenim.
