@@ -14,6 +14,8 @@
 Un endpoint d'un servei web és una URL que proporciona un punt d'accés a una funció o recurs específic del servei web. 
 
 ## Què necessitem per cada End-point
+Necesitem un minim d'aquest recursos per poder fer el serveis web d'un EndPoint.
+
 - **URL**: L'adreça per accedir-hi al codi.
 - **Mètode HTTP**: GET, POST, PUT, DELETE.
 - **Paràmetres de consulta o cos**: Dades que es necessiten per completar la sol·licitud del codi que has fet.
