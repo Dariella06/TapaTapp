@@ -41,4 +41,5 @@ Code Response Http: 200
 <br/> Response Body:
 
 ```json
-{   "UserName": "Dariella",   "Email": "Dariella.Llosa.2006@gmail.com",   "Id": 7,   "Password":  "2006" }      |
+{   "UserName": "Dariella",   "Email": "Dariella.Llosa.2006@gmail.com",
+   "Id": 7,   "Password":  "2006" }
