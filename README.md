@@ -25,7 +25,7 @@ Un endpoint d'un servei web és una URL que proporciona un punt d'accés a una f
 
 Host: http://192.168.56.1:10050
 
-## Taula
+## Taula de JSON 
 
 
 | Descripció  | End-point     | Method     |Tipus de petició|Parametres|
