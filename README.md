@@ -4,7 +4,7 @@
 
 [Descripció del Projecte TapatApp](archivo.md)
 
-[Requeriments tècnics](Reque.md)
+[Requeriments tècnics](tecnics.md)
 
 [Http Response](Respons.md)
 
