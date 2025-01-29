@@ -58,11 +58,12 @@ def getUser():
 
 @app.route('/prototip/getuser/<string:username>', methods=['GET'])
 def prototipGetuser(username):
-    return "Prototip 1 - User:" + username
+    return "Prototip 1 - User:" + username 
 
 @app.route('/hello',methods=['GET'])
 def hello():
     user = str(request.args.get('username'))
+    '''return jsonify(user.to_dict())'''
     return jsonify(daoUser.getUserByUsername("usuari1"))
 
 

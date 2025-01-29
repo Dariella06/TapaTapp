@@ -14,33 +14,27 @@
 Un endpoint d'un servei web és una URL que proporciona un punt d'accés a una funció o recurs específic del servei web. 
 
 ## Què necessitem per cada End-point
-- **Ruta**: El camí d'accés (ex. /api/v1/usuarios).
+- **Ruta/URL**: http://IP:PORT/la ruta d'accés
 - **Mètode HTTP**: GET, POST, PUT, DELETE.
-- **Objectiu**: Funció específica de l'endpoint (ex. "Llistar usuaris").
-- **Paràmetres**: Path, query o dades al body (si aplica).
-- **Respostes**: Format, estructura i codis d'estat (200, 404, 500, etc.).
-- **Seguretat**: Autenticació o autorització requerida (si aplica)
+- **Paràmetres**: Es a dir les rutes dels comands ej: /api/aplicacions.
+- **Respostes**: Depén del codi la resposta et por dinar ej:
+  self.id=id
+        self.username=username
+        self.password=password
+        self.email=email
 
-## Ejemplos
+Host: http://192.168.56.1:10050
 
-### Solicitud
-GET /users HTTP/1.1
-Host: api.ejemplo.com
+## Taula
 
-### Respuesta
-HTTP/1.1 200 OK
-Content-Type: application/json
 
-[
-  {
-    "id": 1,
-    "name": "Juan Pérez",
-    "email": "juan@example.com"
-  },
-  {
-    "id": 2,
-    "name": "Ana López",
-    "email": "ana@example.com"
-  }
-]
+| Descripció  | End-point     | Method     |Tipus de petició|Parametres|
+| :---        |  :---        |  :---        |  :---         |  :---     |  
+| Obtenir les dades del usuari  | /Prototip_1/getuser|GET | application/json   |  UserName (string) | 
 
+Primer afegir tot el codi de la resposta posible json de sortida.
+Si la petició és GET afegirem URL per provar totes les possibles sortides que tenim.
+
+Resposta JSON per el Usuari ha trobat:  
+Code Response Http: 200
+<br/> Response Body: {   "Email": "Dariella.Llosa.2006@gmail.com",   "Id": 1,   "Password":  "2006",   "UserName": "Dariella" }      |
