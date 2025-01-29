@@ -14,15 +14,11 @@
 Un endpoint d'un servei web és una URL que proporciona un punt d'accés a una funció o recurs específic del servei web. 
 
 ## Què necessitem per cada End-point
-- **URL/Path**: http://IP:PORT/la ruta d'accés
-- **Mètode HTTP**: Existix 4 métodes: GET, POST, PUT, DELETE.
-- **Paràmetres**: Es a dir les rutes dels comands ej: /api/aplicacions.
-- **Codi d'estat HTTP**: l'estat de la sol·licitud: 200
-- **Respostes**: Depén del codi la resposta et por donar Ex:
-  self.id=id
-        self.username=username
-        self.password=password
-        self.email=email
+- **URL**: L'adreça per accedir-hi al codi.
+- **Mètode HTTP**: GET, POST, PUT, DELETE.
+- **Paràmetres de consulta o cos**: Dades que es necessiten per completar la sol·licitud del codi que has fet.
+- **Resposta**: El resultat que retorna, normalment en format JSON.
+- **Codi d'estat**: Indica si la petició ha sigut exitosa o ha fallat (**ex:** 200, 404).
 
 Host: http://192.168.56.1:10050
 
