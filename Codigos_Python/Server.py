@@ -38,17 +38,17 @@ else:
 
 app = Flask(__name__)
 
-'''ESTO LO COMENTE PORQUE POR AHORA NO NOS SIRVE'''
-'''@app.route('/proto1/getdata/<string:param1>', methods=['GET'])
-def getData(param1):
-    return "Aquest és el servei /proto1/getdata/ amb parametre=" + param1
+#ESTO LO COMENTE PORQUE POR AHORA NO NOS SIRVE'''
+#@app.route('/proto1/getdata/<string:param1>', methods=['GET'])
+#def getData(param1):
+#    return "Aquest és el servei /proto1/getdata/ amb parametre=" + param1
 
-@app.route('/hello', methods=['GET'])
-def hello():
-    prova=request.args.get('prova')
-    if(prova):
-        return "Hello World Param=" + prova
-    return "Hello World" ESTO ES UN COMENTARIO PARA QUE NO INTERFIERA'''
+#@app.route('/hello', methods=['GET'])
+#def hello():
+#    prova=request.args.get('prova')
+#    if(prova):
+#        return "Hello World Param=" + prova
+#    return "Hello World" ESTO ES UN COMENTARIO PARA QUE NO INTERFIERA
 
 @app.route('/tapatapp/getuser', methods=['GET'])
 def getUser():
@@ -60,11 +60,28 @@ def getUser():
 def prototipGetuser(username):
     return "Prototip 1 - User:" + username 
 
-@app.route('/hello',methods=['GET'])
+#@app.route('/hello',methods=['GET'])
+#def hello():
+#    user = str(request.args.get('username'))
+#    if not user:
+#        return jsonify(daoUser.getUserByUsername("Error, l'usuari no es correcte"), 404) 
+#    if not user:
+#        return jsonify(daoUser.getUserByUsername("Error, Falta una data"), 404) 
+#    return jsonify(daoUser.getUserByUsername("usuari1"))
+
+@app.route('/hello', methods=['GET'])
 def hello():
     user = str(request.args.get('username'))
-    '''return jsonify(user.to_dict())'''
-    return jsonify(daoUser.getUserByUsername("usuari1"))
+    
+    if not user:
+        return jsonify({"error": "Error, l'usuari no es correcte"}), 404
+    
+    if not request.args.get('email'):
+        return jsonify({"error": "Error, Falta una data"}), 400
+    
+    # Llamada corregida a getUserByUsername, solo pasando el nombre de usuario
+    return jsonify(daoUser.getUserByUsername("usuari1","prova@gmail.com"))
+
 
 
 if __name__ == '__main__':
