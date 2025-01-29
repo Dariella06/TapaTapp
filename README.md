@@ -38,4 +38,7 @@ Si la petició és GET afegirem URL per provar totes les possibles sortides que 
 
 Resposta JSON per el Usuari ha trobat:  
 Code Response Http: 200
-<br/> Response Body: ```{   "UserName": "Dariella",   "Email": "Dariella.Llosa.2006@gmail.com",   "Id": 7,   "Password":  "2006" }      |
+<br/> Response Body:
+
+```json
+{   "UserName": "Dariella",   "Email": "Dariella.Llosa.2006@gmail.com",   "Id": 7,   "Password":  "2006" }      |
