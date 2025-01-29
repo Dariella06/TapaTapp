@@ -25,7 +25,6 @@ class DAOUsers:
         for u in self.users:
             if u.username == username:
                 return u.__dict__
-                
         return None
 
 daoUser = DAOUsers()
@@ -37,6 +36,7 @@ else:
     print("No trobat")
 
 app = Flask(__name__)
+
 '''ESTO LO COMENTE PORQUE POR AHORA NO NOS SIRVE'''
 '''@app.route('/proto1/getdata/<string:param1>', methods=['GET'])
 def getData(param1):
