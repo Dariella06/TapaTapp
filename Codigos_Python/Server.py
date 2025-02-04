@@ -56,9 +56,22 @@ def getUser():
     email = str(request.args.get('mail'))
     return "Hello Word!!" + " Nom:" + n + " Email:" + email
 
-@app.route('/prototip/getuser/<string:username>', methods=['GET'])
-def prototipGetuser(username):
-    return "Prototip 1 - User:" + username 
+#@app.route('/prototip/getuser/<string:username>', methods=['GET'])
+#def prototipGetuser(username):
+#    return "Prototip 1 - User:" + username 
+
+@app.route('/prototip1/getuser', methods=['GET'])
+def get_user_by_username():
+    username = request.args.get('username', default="", type=str)
+    print("+" + username + "+")
+    if not username:
+        return jsonify({"error": "Bad Request: 'username' parameter is required"}), 400
+    
+    user = user_dao.get_user_by_username(username)
+    if user:
+        return jsonify(user)
+    else:
+        return jsonify({"error": f"User with username {username} not found"}), 404
 
 #@app.route('/hello',methods=['GET'])
 #def hello():
