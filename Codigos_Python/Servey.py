@@ -61,17 +61,19 @@ def getUser():
 #    return "Prototip 1 - User:" + username 
 
 @app.route('/prototip1/getuser', methods=['GET'])
-def get_user_by_username():
+def get_user():
     username = request.args.get('username', default="", type=str)
-    print("+" + username + "+")
-    if not username:
-        return jsonify({"error": "Bad Request: 'username' parameter is required"}), 400
+    print("Username received: " + username)
     
-    user = user_dao.get_user_by_username(username)
+    if not username:
+        return jsonify({"ERROR": "Mal Request: 'username' parametro es requerido"}), 400
+
+    user = daoUser.getUserByUsername(username)
     if user:
         return jsonify(user)
     else:
-        return jsonify({"error": f"User with username {username} not found"}), 404
+        return jsonify({"ERROR": "usuario con el usernam '" + username + "' no encontrado"}), 404
+
 
 #@app.route('/hello',methods=['GET'])
 #def hello():
