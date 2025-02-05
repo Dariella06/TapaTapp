@@ -57,6 +57,7 @@ def getUser():
 
 #@app.route('/prototip/getuser/<string:username>', methods=['GET'])
 #def prototipGetuser(username):
+<<<<<<< HEAD
 #    return "Prototip 1 - User:" + username
 
 @app.route('/prototip/getuser/', methods=['GET'])
@@ -64,6 +65,22 @@ def getUser():
 def prototipGetuser(username=None):
     if not username:
         return jsonify({"error": "Error, No hay usuario."}), 404
+=======
+#    return "Prototip 1 - User:" + username 
+
+@app.route('/prototip1/getuser', methods=['GET'])
+def get_user_by_username():
+    username = request.args.get('username', default="", type=str)
+    print("+" + username + "+")
+    if not username:
+        return jsonify({"error": "Bad Request: 'username' parameter is required"}), 400
+    
+    user = user_dao.get_user_by_username(username)
+    if user:
+        return jsonify(user)
+    else:
+        return jsonify({"error": f"User with username {username} not found"}), 404
+>>>>>>> 6b21dd4870dcbb3e1736112cde8540724875d786
 
     missing_data = request.args.get("listUsers")
     if not missing_data:
