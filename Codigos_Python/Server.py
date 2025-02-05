@@ -7,9 +7,6 @@ class User:
         self.password=password
         self.email=email
 
-#    def __str__(self):
-#        return "Id:" + str(self.id) + " Username:" + self.username
-
 listUsers= [
     User(1,"usuari1", "12345", "prova@gmail.com"),
     User(2,"user2", "123", "user2@proven.cat"),
@@ -30,11 +27,13 @@ class DAOUsers:
 
 daoUser = DAOUsers()
 
-u=daoUser.getUserByUsername("usuari1")
+'''u=daoUser.getUserByUsername("usuari1")
 if(u):
     print(u)
 else:
-    print("No trobat")
+    print("No trobat")'''
+
+print(daoUser.getUserByUsername("usuari1"))
 
 app = Flask(__name__)
 
@@ -56,33 +55,27 @@ def getUser():
     email = str(request.args.get('mail'))
     return "Hello Word!!" + " Nom:" + n + " Email:" + email
 
+#@app.route('/prototip/getuser/<string:username>', methods=['GET'])
+#def prototipGetuser(username):
+#    return "Prototip 1 - User:" + username
+
+@app.route('/prototip/getuser/', methods=['GET'])
 @app.route('/prototip/getuser/<string:username>', methods=['GET'])
-def prototipGetuser(username):
-    return "Prototip 1 - User:" + username 
+def prototipGetuser(username=None):
+    if not username:
+        return jsonify({"error": "Error, No hay usuario."}), 404
 
-#@app.route('/hello',methods=['GET'])
-#def hello():
-#    user = str(request.args.get('username'))
-#    if not user:
-#        return jsonify(daoUser.getUserByUsername("Error, l'usuari no es correcte"), 404) 
-#    if not user:
-#        return jsonify(daoUser.getUserByUsername("Error, Falta una data"), 404) 
-#    return jsonify(daoUser.getUserByUsername("usuari1"))
+    missing_data = request.args.get("listUsers")
+    if not missing_data:
+        return jsonify({"error": "Error, falta algo."}), 400
 
-@app.route('/hello', methods=['GET'])
+    return "Prototip 1 - User:" + username + " Missing Data:" + missing_data + "Prototip 1 - User:" + username + "Missing Data:" + missing_data
+    
+
+@app.route('/hello',methods=['GET'])
 def hello():
     user = str(request.args.get('username'))
-    
-    if not user:
-        return jsonify({"error": "Error, l'usuari no es correcte"}), 404
-    
-    if not request.args.get('email'):
-        return jsonify({"error": "Error, Falta una data"}), 400
-    
-    # Llamada corregida a getUserByUsername, solo pasando el nombre de usuario
-    return jsonify(daoUser.getUserByUsername("usuari1","prova@gmail.com"))
-
-
+    return jsonify(daoUser.getUserByUsername("usuari1"))
 
 if __name__ == '__main__':
      app.run(debug=True,host="0.0.0.0",port="10050")

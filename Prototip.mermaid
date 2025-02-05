@@ -1,0 +1,26 @@
+classDiagram
+    ViewConsole --> UserDao
+    UserDao --> User
+    User --> Errors
+
+class ViewConsole{
+    +String Username
+    +getUsernameBy(Username)
+    +InfoUser(User user)
+    +InfoError(Error user)
+}
+
+class UserDao{
+    +getUsernameBy(Username)
+    +String Username
+}
+class User{
+    +Id
+    +Username
+    +Password
+    +Email
+}
+class Errors{
+    +Code Error
+    +Descripció_dels_errors
+}
