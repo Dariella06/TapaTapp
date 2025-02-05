@@ -1,0 +1,21 @@
+classDiagram
+    class WebService {
+        +get_users()
+        +get_user_by_username(username: string)
+    }
+
+    class UserDAO {
+        -list users
+        +get_all_users() list
+        +get_user_by_username(username: string) dict
+    }
+
+    class User {
+        +int id
+        +string username
+        +string password
+        +string email
+    }
+
+    WebService --> UserDAO : "Fa consultes a"
+    UserDAO --> User : "Conté una llista de"

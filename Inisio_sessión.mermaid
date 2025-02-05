@@ -1,0 +1,25 @@
+flowchart TD
+    A[Benvinguda] -->|Entrar a la pàgina| B[Login]
+    B -->|Registrar un nou usuari| E[Registre]
+    B -->|Recuperar contrasenya| F[Recuperar_Contrasenya]
+    B -->|Iniciar sessió correctament| U[User_Home]
+    
+    U -->|Veure la llista de nens| C[Lista_Niños]
+    U -->|Informació del usuari| V[Info_User]
+    
+    C -->|Veure menú del nen| M[MenuChild]
+    C -->|Anar al perfil| K[Perfil]
+    
+    E -->|Usuari registrat| B
+    
+    F -->|Verificació de l'usuari| G[Introduir codi de verificació]
+    G -->|Contrasenya recuperada| B
+
+%%Login: First_Name, Last_Name, Email
+%%Lista_Niños: Firt_Name, Last_Name
+%%Recuperar_Contrasenya: First_Name, Email
+%%User_home: El usuari ha entrar a su perfil
+%%Registre: First_Name, Last_Name, Email
+%%MenuChild: El usuari ha entrar a su perfil
+%%Info_User: First_Name, Last_Name, Email
+%%Introduir codi de verificació: Email
