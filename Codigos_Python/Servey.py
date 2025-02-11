@@ -94,7 +94,6 @@ def hello():
     if not request.args.get('email'):
         return jsonify({"error": "Error, Falta una data"}), 400
     
-    # Llamada corregida a getUserByUsername, solo pasando el nombre de usuario
     return jsonify(daoUser.getUserByUsername("usuari1","prova@gmail.com"))
 
 
