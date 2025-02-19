@@ -42,6 +42,17 @@ Code Response Http: 200
    "Id": 7,   "Password":  "2006" }
 
 
+## Prototipo 1
+[Diagrama](prototipo1/Prototip_1.mermaid)
+
+
+[BackEnd](prototipo1/Backend.mermaid)
+
+## FrontEdnd
+[FrontEdnd](prototipo1/FrontEnd.mermaid)
+
+
+
 ## Prototipo 2
 
 [WireFrame de la App](prototipo2/wireframe.mermaid)
