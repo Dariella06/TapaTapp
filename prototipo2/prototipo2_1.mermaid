@@ -1,0 +1,56 @@
+classDiagram
+    Vista --> DAOUser
+    Vista --> DAOTap
+    Vista --> DAOChild
+    DAOUser --> User
+    DAOTap --> Tap
+    DAOChild --> Child
+    
+    class Vista {
+        +ShowUserInfo(User)
+        +ShowTapInfo(Tap)
+        +ShowChildInfo(Child)
+    }
+    
+    class DAOUser {
+        +IdUser()
+        +GetUserById(int)
+        +GetAllUsers()
+    }
+    
+    class DAOTap {
+        +IdTap()
+        +GetTapById(int)
+        +GetAllTaps()
+    }
+    
+    class DAOChild {
+        +IdChild()
+        +GetChildById(int)
+        +GetAllChildren()
+    }
+    
+    class User {
+        -id
+        -name
+        -email
+        +GetName()
+        +GetEmail()
+    }
+    
+    class Tap {
+        -id
+        -location
+        -status
+        +GetLocation()
+        +GetStatus()
+    }
+    
+    class Child {
+        -id
+        -name
+        -sudname
+        -age
+        +GetName()
+        +GetAge()
+    }
