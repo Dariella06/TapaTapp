@@ -43,4 +43,4 @@ Code Response Http: 200
 
 
 ## Prototipo 2
-[Wireframe](prototipo2/prototipo2_1.mermaid)
+(prototipo2/prototipo2_1.mermaid)
