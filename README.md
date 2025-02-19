@@ -45,10 +45,10 @@ Code Response Http: 200
 ## Prototipo 1
 [Diagrama](prototipo1/Prototip_1.mermaid)
 
-
+#### BackEdnd
 [BackEnd](prototipo1/Backend.mermaid)
 
-## FrontEdnd
+#### FrontEdnd
 [FrontEdnd](prototipo1/FrontEnd.mermaid)
 
 
