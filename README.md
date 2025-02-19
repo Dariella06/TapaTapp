@@ -42,5 +42,5 @@ Code Response Http: 200
    "Id": 7,   "Password":  "2006" }
 
 
-## Prototip 2
+## Prototipo 2
 [Wireframe](prototipo2/prototipo2_2.mermaid)
