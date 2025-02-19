@@ -1,0 +1,47 @@
+classDiagram
+    View --> DAOUser : "Hace consultas"
+    View --> DAOTap : "Hace consultas"
+    View --> DAOChild : "Hace consultas"
+    DAOUser --> User : "Contiene una lista "
+    DAOTap --> Tap : "Contiene una lista"
+    DAOChild --> Child : "Contiene una lista"
+
+    
+    class View {
+        +getuserinfo(int)
+        +gettapinfo(int)
+        +getchildinfo(int)
+    }
+
+    class DAOUser {
+        -list users
+        +getuserbyid(int) dict
+    }
+
+    class DAOTap {
+        -list taps
+        +gettapbyid(int) dict
+    }
+
+    class DAOChild {
+        -list children
+        +getchildbyid(int) dict
+    }
+
+    class User {
+        +int id
+        +string name
+        +string surname
+        +string email
+    }
+
+    class Tap {
+        +int id
+        +string status
+    }
+
+    class Child {
+        +int id
+        +string name
+        +int age
+    }
