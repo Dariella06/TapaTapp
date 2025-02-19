@@ -38,6 +38,9 @@ Resposta JSON per el Usuari ha trobat:
 Code Response Http: 200
 <br/> Response Body:
 
-```json
 {   "UserName": "Dariella",   "Email": "Dariella.Llosa.2006@gmail.com",
    "Id": 7,   "Password":  "2006" }
+
+
+## Prototip 2
+[Wireframe](prototipo2/prototipo2_2.mermaid)

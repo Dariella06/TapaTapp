@@ -13,44 +13,43 @@ classDiagram
     }
     
     class DAOUser {
-        +IdUser()
-        +GetUserById(int)
-        +GetAllUsers()
+        +IdUser(Number)
+        +GetUserById(Number)
+        +GetAllUser(String)
     }
-    
+
     class DAOTap {
-        +IdTap()
-        +GetTapById(int)
-        +GetAllTaps()
+        +IdTap(Number)
+        +GetTapById(Number)
+        +GetAllTaps(String)
     }
     
     class DAOChild {
-        +IdChild()
-        +GetChildById(int)
-        +GetAllChildren()
+        +IdChild(Number)
+        +GetChildById(Number)
+        +GetAllChildren(String)
     }
     
     class User {
         -id
         -name
+        -sudname
         -email
-        +GetName()
-        +GetEmail()
+        +GetName(String)
+        +GetSudname(String)
+        +GetEmail(String)
     }
     
     class Tap {
         -id
-        -location
         -status
-        +GetLocation()
-        +GetStatus()
+        +GetStatus(String)
     }
     
     class Child {
         -id
         -name
-        -sudname
         -age
-        +GetName()
-        +GetAge()
+        +GetName(String)
+        +GetAge(Number)
     }
