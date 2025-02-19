@@ -2,11 +2,10 @@
 
 ## Wireframe de la App
 
-Puedes ver el wireframe de la app en el siguiente enlace:
+Puedes ver el wireframe de la app:
 
 [Wireframe de la App](wireframe.mermaid)
 
----
 
 ## Información, Entrada e Interacción
 
