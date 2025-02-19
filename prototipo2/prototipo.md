@@ -1,7 +1,26 @@
 # Prototipo 2
 [WireFrame de la App](wireframe.mermaid)
 
-### Descripció de que implementa el prototip 2
+%% Login: Para acceder a la página, primero debes ingresar tu nombre (First_Name) y correo electrónico (Email). Sin esta información, no podrás acceder a tu perfil.
+%% Lista de niños: Aquí aparecerá una lista con los niños registrados, mostrando su nombre y apellido (First_Name y Last_Name).
+    %% Ver lista de niños: En la lista se muestra el nombre (First_Name) y apellido (Last_Name) de cada niño. Se pueden listar varios niños para poder diferenciarlos.
+%% Recuperar contraseña: Si olvidas tu contraseña, debes ingresar tu nombre (First_Name) y correo electrónico (Email) para recuperarla.
+%% Home del usuario: Al iniciar sesión, accederás a tu perfil con tu nombre (First_Name) y correo electrónico (Email).
+%% Registro: Si eres nuevo, para crear una cuenta debes ingresar tu nombre (First_Name), apellidos (Last_Name) y correo electrónico (Email).
+    %% Registrar un nuevo usuario: Al crear una nueva cuenta, se guarda tu nombre (First_Name), apellidos (Last_Name) y correo electrónico (Email).
+    %% Usuario registrado: Si ya estás registrado, tu nombre (First_Name), apellidos (Last_Name) y correo electrónico (Email) ya están guardados.
+%% Menú del niño: Desde aquí puedes ver el menú asignado al niño seleccionado, junto con su información de nombre (First_Name), apellidos (Last_Name) y correo electrónico (Email).
+    %% Ver menú del niño: Podrás ver el nombre (First_Name), apellidos (Last_Name) y correo electrónico (Email) de cada niño. Esto te ayudará a diferenciar a los niños con el mismo nombre.
+%% Información del usuario: En esta sección podrás ver tu propia información, como tu nombre (First_Name), apellidos (Last_Name) y correo electrónico (Email).
+    %% Información del usuario: Aquí puedes consultar la información que tenemos registrada sobre ti.
+%% Código de verificación: Si estás recuperando tu contraseña, te enviarán un código a tu correo electrónico (Email) que deberás ingresar aquí para poder cambiarla.
+    %% Contraseña recuperada: Podras entrar session con tu nombre (First_Name) y tl gmail (Email).
+%% Perfil: En tu perfil podrás ver todos tus datos, como tu nombre (First_Name), apellidos (Last_Name) y correo electrónico (Email), y modificar cualquier información que necesites.
+
+## Descripció de que implementa el prototip 2
 En el prototipo 2 crearmos los wireframes para tener en cuenta omo haremos la app, tenemos el prototipo de las descripcion de ususarios, de los niños, su servició. Esta hecho para ver como esta el proyecto original.
 
+## Diagrama
 [Diagrama de la App](prototipo2_1.mermaid)
+
+##  Protipos de diagrama de Backend y Frontend
