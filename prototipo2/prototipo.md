@@ -46,7 +46,7 @@ En el **Prototipo 2**, hemos creado los wireframes para visualizar la estructura
 ### Diagrama FrontEnd
 Aqui esta el enlace para ver FronEnd:
 
-[Diagrama de FrontEnd](FrontEnd.mermaid)
+[Diagrama de FrontEnd](frontend.mermaid)
 
 ### Diagrama BackEnd
 Aqui esta el enlace para ver Backend:
