@@ -10,6 +10,9 @@
 
 [Http Request](Request.md)
 
+
+## Prototipo 1
+
 ## Definició dels EndPoints del Servei Web:
 Un endpoint d'un servei web és una URL que proporciona un punt d'accés a una funció o recurs específic del servei web. 
 
@@ -41,8 +44,6 @@ Code Response Http: 200
 {   "UserName": "Dariella",   "Email": "Dariella.Llosa.2006@gmail.com",
    "Id": 7,   "Password":  "2006" }
 
-
-## Prototipo 1
 [Diagrama](prototipo1/Prototip_1.mermaid)
 
 ### BackEdnd
