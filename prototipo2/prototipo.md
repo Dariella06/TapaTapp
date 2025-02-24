@@ -5,38 +5,39 @@
 Puedes ver el wireframe de la app:  
 [Wireframe de la App](wireframe.mermaid)
 
-## Información, Entrada e Interacción
+## Descripció dels View:
 
-### Iniciar Sesión  
+#### Iniciar Sesión  
 Accede ingresando tu nombre y correo.  
 
-### Lista de Niños  
+#### Lista de Niños  
 Consulta los niños registrados con su nombre y apellido.  
 
-### Recuperar Contraseña  
+#### Recuperar Contraseña  
 Si la olvidaste, ingresa tu nombre y correo para recuperarla.  
 
-### Inicio del Usuario  
+#### Inicio del Usuario  
 Al iniciar sesión, verás tu nombre y correo en tu perfil.  
 
-### Registro  
+#### Registro  
 Si eres nuevo, crea tu cuenta con nombre, apellidos y correo.  
 
-### Menú del Niño  
+#### Menú del Niño  
 Consulta el menú asignado a cada niño junto con su información básica.  
 
-### Información del Usuario  
+#### Información del Usuario  
 Consulta o edita tu nombre, apellidos y correo cuando quieras.  
 
-### Código de Verificación  
+#### Código de Verificación  
 Recibirás un código en tu correo para recuperar tu contraseña.  
 
-### Perfil  
+#### Perfil  
 Aquí puedes ver y actualizar tus datos personales.  
 
 ## Descripción de Implementación del Prototipo 2
 
-En el Prototipo 2, hemos creado los wireframes para visualizar la estructura de la app, considerando las descripciones de usuarios, niños y sus servicios. Este prototipo nos permite analizar el estado del proyecto original y planificar el diseño y el flujo de la aplicación.  
+En el Prototipo 2, he creado los wireframes para visualizar la estructura de la app, considerando las descripciones de usuarios, niños y sus servicios. 
+Este prototipo nos permite analizar el estado del proyecto original y planificar el diseño y el flujo de la aplicación.
 
 ## Diagramas de la Arquitectura
 
