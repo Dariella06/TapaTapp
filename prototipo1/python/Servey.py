@@ -7,6 +7,7 @@ class User:
         self.password=password
         self.email=email
 
+
 #    def __str__(self):
 #        return "Id:" + str(self.id) + " Username:" + self.username
 
@@ -60,7 +61,7 @@ def getUser():
 #def prototipGetuser(username):
 #    return "Prototip 1 - User:" + username 
 
-@app.route('/prototip1/getuser', methods=['GET'])
+@app.route('/prototip1/getser', methods=['GET'])
 def get_user():
     username = request.args.get('username', default="", type=str)
     print("Username received: " + username)
@@ -97,7 +98,6 @@ def hello():
     return jsonify(daoUser.getUserByUsername("usuari1","prova@gmail.com"))
 
 
-
 if __name__ == '__main__':
-     app.run(debug=True,host="0.0.0.0",port="10050")
+     app.run(debug=True,host="0.0.0.0",port=10050)
 

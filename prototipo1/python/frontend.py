@@ -1,6 +1,7 @@
 import requests
 
 
+# Clase User
 class User:
     def __init__(self, id, username, password, email):
         self.id = id
