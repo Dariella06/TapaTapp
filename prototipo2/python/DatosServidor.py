@@ -1,125 +1,122 @@
-# Classe de Usuarios
-class Usuario:
-    def __init__(self, id, nombre, apellido, email, contraseña):
+# User Class
+class User:
+    def __init__(self, id, first_name, last_name, email, password):
         self.id = id
-        self.nombre = nombre
-        self.apellido = apellido
+        self.first_name = first_name
+        self.last_name = last_name
         self.email = email
-        self.contraseña = contraseña
+        self.password = password
     
     def __str__(self):
-        return self.nombre + " " + self.apellido + "(" + self.email + ")"
+        return self.first_name + " " + self.last_name + "(" + self.email + ")"
 
-# Classe de Niños
-class Niño:
-    def __init__(self, id, nombre, apellido, tratamiento_id, promedio_sueño):
+# Child Class
+class Child:
+    def __init__(self, id, first_name, last_name, treatment_id, average_sleep):
         self.id = id
-        self.nombre = nombre
-        self.apellido = apellido
-        self.tratamiento_id = tratamiento_id
-        self.promedio_sueño = promedio_sueño
+        self.first_name = first_name
+        self.last_name = last_name
+        self.treatment_id = treatment_id
+        self.average_sleep = average_sleep
     
     def __str__(self):
-        return self.nombre + " " + self.apellido + " (Tratamiento: " + str(self.tratamiento_id) + ", Sueño: " + str(self.promedio_sueño) + " hrs)"
+        return self.first_name + " " + self.last_name + " (Treatment: " + str(self.treatment_id) + ", Sleep: " + str(self.average_sleep) + " hrs)"
 
-# Classe de Tratamiento
-class Tratamiento:
-    def __init__(self, id, nombre):
+# Treatment Class
+class Treatment:
+    def __init__(self, id, name):
         self.id = id
-        self.nombre = nombre
+        self.name = name
     
     def __str__(self):
-        return "Tratamiento " + str(self.id) + ": " + self.nombre
+        return "Treatment " + str(self.id) + ": " + self.name
 
-# Classe de Tap
+# Tap Class
 class Tap:
-    def __init__(self, id, niño_id, estado_id, usuario_id, inicio, fin):
+    def __init__(self, id, child_id, status_id, user_id, start, end):
         self.id = id
-        self.niño_id = niño_id
-        self.estado_id = estado_id
-        self.usuario_id = usuario_id
-        self.inicio = inicio
-        self.fin = fin
+        self.child_id = child_id
+        self.status_id = status_id
+        self.user_id = user_id
+        self.start = start
+        self.end = end
     
     def __str__(self):
-        return "Tap " + str(self.id) + " (Niño " + str(self.niño_id) + " - Estado " + str(self.estado_id) + ")"
+        return "Tap " + str(self.id) + " (Child " + str(self.child_id) + " - Status " + str(self.status_id) + ")"
 
-# Classe de Estado
-class Estado:
-    def __init__(self, id, nombre):
+# Status Class
+class Status:
+    def __init__(self, id, name):
         self.id = id
-        self.nombre = nombre
+        self.name = name
     
     def __str__(self):
-        return "Estado " + str(self.id) + ": " + self.nombre
+        return "Status " + str(self.id) + ": " + self.name
 
-# Classe de Rol
-class Rol:
-    def __init__(self, id, tipo_rol):
+# Role Class
+class Role:
+    def __init__(self, id, role_type):
         self.id = id
-        self.tipo_rol = tipo_rol
+        self.role_type = role_type
     
     def __str__(self):
-        return "Rol " + str(self.id) + ": " + self.tipo_rol
+        return "Role " + str(self.id) + ": " + self.role_type
 
 
-# Classe de codigo de verificación
-class CodigoVerificacion:
-    def __init__(self, usuario_id, codigo):
-        self.usuario_id = usuario_id
-        self.codigo = codigo
+# Verification Code Class
+class VerificationCode:
+    def __init__(self, user_id, code):
+        self.user_id = user_id
+        self.code = code
     
     def __str__(self):
-        return "Código de Verificación para Usuario " + str(self.usuario_id) + ": " + self.codigo
+        return "Verification Code for User " + str(self.user_id) + ": " + self.code
 
 
-# Datos de ejemplo
-usuarios = [
-    Usuario(1, "Madre", "Perez", "madre@gmail.com", "1234"),
-    Usuario(2, "Padre", "Lopez", "padre@gmail.com", "3564")
+# Sample Data
+users = [
+    User(1, "Mother", "Perez", "mother@gmail.com", "1234"),
+    User(2, "Father", "Lopez", "father@gmail.com", "3564")
 ]
 
-# Niños
-niños = [
-    Niño(1, "Dariella", "Child", 1, 9),
-    Niño(2, "Jaco", "Child", 2, 5)
+# Children
+children = [
+    Child(1, "Dariella", "Child", 1, 9),
+    Child(2, "Camille", "Child", 2, 5)
 ]
 
-
-# Tratamientos
-tratamientos = [
-    Tratamiento(1, "Hora"),
-    Tratamiento(2, "Porcentaje")
+# Treatments
+treatments = [
+    Treatment(1, "Hour"),
+    Treatment(2, "Percentage")
 ]
-
 
 # Roles
 roles = [
-    Rol(1, "Admin"),
-    Rol(2, "Tutor Madre Padre"),
-    Rol(3, "Cuidador"),
-    Rol(4, "Seguimiento")
+    Role(1, "Admin"),
+    Role(2, "Tutor Mother Father"),
+    Role(3, "Caregiver"),
+    Role(4, "Follow-up")
 ]
 
-
-# Estados
-estados = [
-    Estado(1, "Dormir"),
-    Estado(2, "Despierto"),
-    Estado(3, "Sin Parche"),
-    Estado(4, "No Parche")
+# Statuses
+statuses = [
+    Status(1, "Sleeping"),
+    Status(2, "Awake"),
+    Status(3, "No Patch"),
+    Status(4, "No Patch")
 ]
 
-# Relación del usuario de niñoc
-relacion_usuario_niño = [
-    {"usuario_id": 1, "niño_id": 1, "rol_id": 1},
-    {"usuario_id": 1, "niño_id": 1, "rol_id": 2},
-    {"usuario_id": 2, "niño_id": 2, "rol_id": 1},
-    {"usuario_id": 2, "niño_id": 2, "rol_id": 2}
+# User-Child Relationship
+user_child_relationship = [
+    {"user_id": 1, "child_id": 1, "role_id": 1},
+    {"user_id": 1, "child_id": 1, "role_id": 2},
+    {"user_id": 2, "child_id": 2, "role_id": 1},
+    {"user_id": 2, "child_id": 2, "role_id": 2}
 ]
 
-# Verificación
-codigos_verificacion = [
-    CodigoVerificacion(1, "ABC123"),
-    CodigoVerificacion(2, "XYZ789")
+# Verification
+verification_codes = [
+    VerificationCode(1, "ABC123"),
+    VerificationCode(2, "XYZ789")
 ]
