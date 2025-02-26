@@ -1,5 +1,6 @@
 import requests
 
+
 # Clase User
 class User:
     def __init__(self, id, username, password, email):
@@ -13,8 +14,9 @@ class User:
 
 class UserDAO:
     @staticmethod
-    def get_user_by_username(username, email, password):
-        response = requests.get(f'http://localhost:10050/prototip1/getser?username={username}&email={email}&password={password}')
+    def get_user_by_username_email_password(username, email, password):
+        response = requests.get(f'http://localhost:10050/prototip1/getuser?username={username}&email={email}&password={password}')
+        
         if response.status_code == 200:
             user_data = response.json()
             user = User(user_data['id'], user_data['username'], user_data['password'], user_data['email'])
@@ -25,23 +27,23 @@ class UserDAO:
 class ViewConsole:
     @staticmethod
     def get_input_username():
-        return input("Enter username: ")
+        return input("Introdueix username: ")
     
     @staticmethod
     def get_input_email():
-        return input("Enter email: ")
+        return input("Introdueix email: ")
     
     @staticmethod
     def get_input_password():
-        return input("Enter password: ")
+        return input("Introdueix password: ")
     
     @staticmethod
     def show_user_info(username, email, password):
-        user = UserDAO.get_user_by_username(username, email, password)
+        user = UserDAO.get_user_by_username_email_password(username, email, password)
         if user:
-            print(f"User Info: {user}")
+            print(f"Usuario info: {user}")
         else:
-            print(f"User with username {username} not found")
+            print(f"Usuario con el username {username}, email {email}, y password {password} no encontrados")
 
 if __name__ == "__main__":
     username = ViewConsole.get_input_username()

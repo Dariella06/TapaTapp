@@ -11,7 +11,7 @@ class User:
 #    def __str__(self):
 #        return "Id:" + str(self.id) + " Username:" + self.username
 
-listUsers= [
+users= [
     User(1,"usuari1", "12345", "prova@gmail.com"),
     User(2,"user2", "123", "user2@proven.cat"),
     User(3,"admin","12","admin@proven.cat"),
@@ -19,23 +19,36 @@ listUsers= [
     User(5,"Dariella","2006","dariella@gmail.com")
 ]
 
-class DAOUsers:
+class UserDAO:
     def __init__(self):
-        self.users=listUsers
+        self.users = users
+
+    def get_all_users(self):
+        result = []
+        for user in self.users:
+            result.append(user.__dict__)
+        return result
+
+    def get_user_by_username(self, username):
+        for user in self.users:
+            if user.username == username:
+                return user.__dict__
+        return None
     
-    def getUserByUsername(self,username):
-        for u in self.users:
-            if u.username == username:
-                return u.__dict__
+    def get_user_by_username_email_password(self, username, email, password):
+        for user in self.users:
+            if user.username == username and user.email == email and user.password == password:
+                return user.__dict__
         return None
 
-daoUser = DAOUsers()
+# Inicialitzar DAOs
+user_dao = UserDAO()
 
-u=daoUser.getUserByUsername("usuari1")
-if(u):
-    print(u)
-else:
-    print("No trobat")
+#u=daoUser.getUserByUsername("usuari1")
+#if(u):
+#    print(u)
+#else:
+#    print("No trobat")
 
 app = Flask(__name__)
 
@@ -61,19 +74,24 @@ def getUser():
 #def prototipGetuser(username):
 #    return "Prototip 1 - User:" + username 
 
-@app.route('/prototip1/getser', methods=['GET'])
-def get_user():
-    username = request.args.get('username', default="", type=str)
-    print("Username received: " + username)
-    
-    if not username:
-        return jsonify({"ERROR": "Mal Request: 'username' parametro es requerido"}), 400
+@app.route('/prototip1/users', methods=['GET'])
+def get_users():
+    return jsonify(user_dao.get_all_users())
 
-    user = daoUser.getUserByUsername(username)
+@app.route('/prototip1/getuser', methods=['GET'])
+def get_user_by_username_email_password():
+    username = request.args.get('username', default="", type=str)
+    email = request.args.get('email', default="", type=str)
+    password = request.args.get('password', default="", type=str)
+
+    if not username or not email or not password:
+        return jsonify({"error": "No encontrado los parametetros: 'username', 'email', or 'password' Son requeridos"}), 400
+
+    user = user_dao.get_user_by_username_email_password(username, email, password)
     if user:
         return jsonify(user)
     else:
-        return jsonify({"ERROR": "usuario con el usernam '" + username + "' no encontrado"}), 404
+        return jsonify({"error": "Usuario con nombre de usuario, correo electrónico y contraseña proporcionados no encontrados"}), 404
 
 
 #@app.route('/hello',methods=['GET'])
@@ -95,7 +113,7 @@ def hello():
     if not request.args.get('email'):
         return jsonify({"error": "Error, Falta una data"}), 400
     
-    return jsonify(daoUser.getUserByUsername("usuari1","prova@gmail.com"))
+    return jsonify(user_dao.get_user_by_username("usuari1","prova@gmail.com"))
 
 
 if __name__ == '__main__':
