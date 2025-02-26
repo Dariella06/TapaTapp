@@ -13,7 +13,6 @@ class User:
         return f"Id: {self.id}, Username: {self.username}, Password: {self.password}, Email: {self.email}"
 
 class UserDAO:
-    @staticmethod
     def get_user_by_username_email_password(username, email, password):
         response = requests.get(f'http://localhost:10050/prototip1/getuser?username={username}&email={email}&password={password}')
         
@@ -25,19 +24,15 @@ class UserDAO:
             return None
         
 class ViewConsole:
-    @staticmethod
     def get_input_username():
         return input("Introdueix username: ")
     
-    @staticmethod
     def get_input_email():
         return input("Introdueix email: ")
     
-    @staticmethod
     def get_input_password():
         return input("Introdueix password: ")
     
-    @staticmethod
     def show_user_info(username, email, password):
         user = UserDAO.get_user_by_username_email_password(username, email, password)
         if user:
