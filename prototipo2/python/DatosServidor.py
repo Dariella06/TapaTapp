@@ -107,6 +107,7 @@ def list_children(children):
     print("Lista de niños 👶:")
     for child in children:
         print(f"ID: {child['id']}, Nombre: {child['child_name']}, Promedio de sueño: {child['sleep_average']}, ID de tratamiento: {child['treatment_id']}, Tiempo: {child['time']}")
+        
 
 # Función principal
 def main():
