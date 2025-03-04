@@ -1,84 +1,64 @@
-from flask import Flask, request, jsonify
-import DatosServidor as data
-from DatosServidor import User, Child, Treatment, Status, VerificationCode
+import DatosServidor as dades
+from DatosServidor import User, Child, Tap, Status, Role, Treatment
+from flask import Flask, jsonify, request
+
+app = Flask(__name__)
 
 class UserDAO:
-    def __init__(self, users):
-        self.users = users
+    def __init__(self):
+        self.users = dades.users
 
     def get_all_users(self):
         return [user.__dict__ for user in self.users]
 
-    def get_user_by_email(self, email):
+    def get_user_by_username_password(self, username, password):
         for user in self.users:
-            if user.email == email:
-                return user.__dict__
-        return None
-    
-    def get_user_by_username_email_password(self, users, email, password):
-        for user in self.users:
-            if user.users == users and user.email == email and user.password == password:
+            if user.username == username and user.password == password:
                 return user.__dict__
         return None
 
 class ChildDAO:
-    def __init__(self, children, relationships):
-        self.children = children
-        self.relationships = relationships
+    def __init__(self):
+        self.children = dades.children
 
     def get_all_children(self):
-        return [child.__dict__ for child in self.children]
+        children_dicts = []
+        for child in self.children:
+            children_dicts.append(child.__dict__)
+        return children_dicts
 
-    def get_children_by_user(self, user_id):
-        ids = [rel["child_id"] for rel in self.relationships if rel["user_id"] == user_id]
-        return [child.__dict__ for child in self.children if child.id in ids]
+    def get_children_by_user_id(self, user_id):
+        child_ids = []
+        for rel in dades.relation_user_child:
+            if rel["user_id"] == user_id:
+                child_ids.append(rel["child_id"])
+        children_dicts = []
+        for child in self.children:
+            if child.id in child_ids:
+                children_dicts.append(child.__dict__)
+        return children_dicts
 
-class TreatmentDAO:
-    def __init__(self, treatments):
-        self.treatments = treatments
+@app.route('/prototipo2', methods=['POST'])
+def prototipo2():
+    data = request.get_json()
 
-    def get_all_treatments(self):
-        return [treatment.__dict__ for treatment in self.treatments]
+    if not data.get("username") or not data.get("password"):
+        return jsonify({"error": "Nombre de usuario o contraseña faltantes"}), 400
 
-class StatusDAO:
-    def __init__(self, statuses):
-        self.statuses = statuses
+    username = data["username"]
+    password = data["password"]
 
-    def get_all_statuses(self):
-        return [status.__dict__ for status in self.statuses]
+    user_dao = UserDAO()
+    user = user_dao.get_user_by_username_password(username, password)
 
-class VerificationCodeDAO:
-    def __init__(self, codes):
-        self.codes = codes
-
-    def get_code_by_user(self, user_id):
-        for code in self.codes:
-            if code.user_id == user_id:
-                return code.__dict__
-        return None
-
-user_dao = UserDAO()
-
-app = Flask(__name__)
-
-@app.route('/prototype2/users', methods=['GET'])
-def get_users():
-    return jsonify(user_dao.get_all_users())
-
-@app.route('/prototype2/getuser', methods=['GET'])
-def get_user_by_username_email_password():
-    username = request.args.get('username', default="", type=str)
-    email = request.args.get('email', default="", type=str)
-    password = request.args.get('password', default="", type=str)
-
-    if not username or not email or not password:
-        return jsonify({"error": "The parameters 'username', 'email', or 'password' are required"}), 400
-
-    user = user_dao.get_user_by_username_email_password(username, email, password)
     if user:
-        return jsonify(user)
+        child_dao = ChildDAO()
+        children = child_dao.get_children_by_user_id(user['id'])
+
+        return jsonify({"message": "Login exitoso", "user_info": user, "children": children}), 200
     else:
-        return jsonify({"error": "User with the provided username, email, and password not found"}), 404
+        return jsonify({"error": "Usuario o contraseña incorrectos"}), 401
+
 
 if __name__ == '__main__':
-     app.run(debug=True,host="0.0.0.0",port=10050)
+    app.run(debug=True, host="0.0.0.0", port=10050)
