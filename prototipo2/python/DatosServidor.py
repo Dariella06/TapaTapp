@@ -102,12 +102,19 @@ def show_user_info(user):
     print(f"Correo 💌: {user['email']}")
     print(f"Contraseña 🔑: {user['password']}")
 
-# Función para listar los niños
-def list_children(children):
-    print("Lista de niños 👶:")
+# Funcion para listar niños  
+def list_children_with_taps(children, taps):
+    print("Lista de niños 👶 con sus registros de Tap:")
     for child in children:
-        print(f"ID: {child['id']}, Nombre: {child['child_name']}, Promedio de sueño: {child['sleep_average']}, ID de tratamiento: {child['treatment_id']}, Tiempo: {child['time']}")
-        
+        print(f"\n🆔: {child.id}, Nombre🦝: {child.child_name}, Promedio de sueño💤: {child.sleep_average}, ID de tratamiento💊: {child.treatment_id}, Tiempo⌛: {child.time}")
+        print("Registros de Tap📔:")
+        child_taps = [tap for tap in taps if tap.child_id == child.id]
+        if child_taps:
+            for tap in child_taps:
+                print(f"  - Tap ID: {tap.id}, Inicio⌛: {tap.init}, Fin⏳: {tap.end}")
+        else:
+            print("  - No tiene registros de Tap.")
+
 
 # Función principal
 def main():
@@ -127,7 +134,7 @@ def main():
         while True:
             print("Selecciona una opción:")
             print("1. ℹℹ User info")
-            print("2. 👶 List Child")
+            print("2. 👶 List Child with Taps")
             print("3. 💨 Salir")
             
             option = input("Selecciona una opción: ")
@@ -138,7 +145,7 @@ def main():
                 print(" ")
             elif option == "2":
                 print(" ")
-                list_children(data['children'])
+                list_children_with_taps(children, taps)
                 print(" ")
             elif option == "3":
                 print(" ")
