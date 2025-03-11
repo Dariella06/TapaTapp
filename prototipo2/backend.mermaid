@@ -1,31 +1,30 @@
 classDiagram
-    View --> DAOUser : "Hace consultas"
-    View --> DAOTap : "Hace consultas"
-    View --> DAOChild : "Hace consultas"
-    DAOUser --> User : "Contiene una lista "
+    WebService --> DAOUser : "Hace consultas"
+    WebService --> DAOTap : "Hace consultas"
+    WebService --> DAOChild : "Hace consultas"
+    DAOUser --> User : "Contiene una lista"
     DAOTap --> Tap : "Contiene una lista"
     DAOChild --> Child : "Contiene una lista"
 
-    
-    class View {
-        +getuserinfo(int)
-        +gettapinfo(int)
-        +getchildinfo(int)
+    class WebService {
+        +ShowUserInfo(User)
+        +ShowTapInfo(Tap)
+        +ShowChildInfo(Child)
     }
 
     class DAOUser {
-        -list users
-        +getuserbyid(int) dict
+        +GetUserById(Number)
+        +GetAllUsers()
     }
 
     class DAOTap {
-        -list taps
-        +gettapbyid(int) dict
+        +GetTapById(Number)
+        +GetAllTaps()
     }
 
     class DAOChild {
-        -list children
-        +getchildbyid(int) dict
+        +GetChildById(Number)
+        +GetAllChildren()
     }
 
     class User {
@@ -33,15 +32,22 @@ classDiagram
         +string name
         +string surname
         +string email
+        +GetName()
+        +GetSurname()
+        +GetEmail()
     }
 
     class Tap {
         +int id
         +string status
+        +GetStatus()
     }
 
     class Child {
         +int id
         +string name
         +int age
+        +GetName()
+        +GetAge()
     }
+
