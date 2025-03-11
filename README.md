@@ -57,7 +57,7 @@ Code Response Http: 200
 ## Wireframe de la App
 
 Puedes ver el wireframe de la app:  
-[Wireframe de la App](wireframe.mermaid)
+[Wireframe de la App](./prototipo2/wireframe.mermaid)
 
 ## Descripció dels View:
 
