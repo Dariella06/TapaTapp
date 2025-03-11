@@ -4,7 +4,7 @@ classDiagram
     WebService --> DAOChild : "Hace consultas"
     DAOUser --> User : "Contiene una lista"
     DAOTap --> Tap : "Contiene una lista"
-    DAOChild --> Child : "CContiene una lista"
+    DAOChild --> Child : "Contiene una lista"
 
     class WebService {
         +ShowUserInfo(User)
@@ -40,7 +40,7 @@ classDiagram
     class Tap {
         +int id
         +string status
-        +GetStatus(): string
+        +GetStatus()
     }
 
     class Child {
