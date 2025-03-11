@@ -97,8 +97,8 @@ Este prototipo nos permite analizar el estado del proyecto original y planificar
 
 ### Diagrama FrontEnd  
 Aquí está el enlace para ver el FrontEnd:  
-[Diagrama de FrontEnd](frontend.mermaid)  
+[Diagrama de FrontEnd](./prototipo2/frontend.mermaid)  
 
 ### Diagrama BackEnd  
 Aquí está el enlace para ver el BackEnd:  
-[Diagrama de BackEnd](backend.mermaid)  
+[Diagrama de BackEnd](./prototipo2/backend.mermaid)  
