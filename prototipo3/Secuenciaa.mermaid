@@ -1,0 +1,8 @@
+sequenceDiagram
+    Usuario->>+App: Petición de login/Credenciales
+    App->>-Usuario: Login Ok
+    App->>+WebServer: Petición de login/Credenciales
+    WebServer->>-App: Login OK
+    WebServer->>+BBDD: Verificar Credenciales    
+    BBDD->>-WebServer: Login Ok
+    
