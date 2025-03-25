@@ -1,8 +1,17 @@
 sequenceDiagram
+    participant Usuario
+    participant App
+    participant WebService
+    participant BBDD    
+
     Usuario->>App: Petición de login/Credenciales
     App-->>Usuario: Login Ok
     App->>WebServer: Petición de login/Credenciales
-    WebServer-->>App: Login OK
+    WebServer-->>App: Devuelve token de autenticacion
     WebServer->>BBDD: Verificar Credenciales    
-    BBDD-->>WebServer: Login Ok
+    BBDD-->>WebServer: Validación de resultado(válido o no)
+    App-->>Usuario: Muetsra el mensaje de error
+    WebServer-->>App: Muetsra el mensaje de error
+    App->>WebServer: Petición de login/Credenciales
+    
     
