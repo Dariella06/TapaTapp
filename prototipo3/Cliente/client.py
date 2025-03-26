@@ -24,12 +24,13 @@ def list_children_with_taps(children, taps):
         child_taps = [tap for tap in taps if tap['child_id'] == child['id']]
         if child_taps:
             for tap in child_taps:
-                print(f"  - Tap ID: {tap['id']}, Inicio⌛: {tap['init']}, Fin⏳: {tap['end']}")
+                print(f"  - Tap ID: {tap['id']}, Estado: {tap['status']}")
         else:
             print("  - No tiene registros de Tap.")
 
 # Función principal
 def main():
+    token = None  # Variable para almacenar el token
     while True:
         print("Selecciona una opción:")
         print("1. Registrarse")
@@ -61,6 +62,7 @@ def main():
             
             if response.status_code == 200:
                 data = response.json()
+                token = data['token']  # Almacena el token
                 print(f"💖 Bienvenido💖, {data['user_info']['username']}!")
                 
                 while True:
@@ -82,6 +84,25 @@ def main():
                     elif option == "3":
                         print("")
                         print("Cerrando sesión...")
+                        token = None  # Limpia el token al cerrar sesión
+                        print("¿Quieres continuar con la última sesión abierta o iniciar sesión nuevamente?")
+                        print("1. Continuar con la última sesión")
+                        print("2. Iniciar sesión")
+                        choice = input("Selecciona una opción: ")
+                        
+                        if choice == "1" and token:
+                            # Verificar el token
+                            response = requests.get('http://localhost:10050/protected', headers={"Authorization": f"Bearer {token}"})
+                            if response.status_code == 200:
+                                print("Sesión activa. Puedes continuar.")
+                                # Aquí puedes agregar más lógica para continuar la sesión
+                            else:
+                                print("Token inválido o sesión expirada.")
+                                token = None  # Limpia el token si es inválido
+                        elif choice == "2":
+                            continue  # Regresa al inicio del bucle para iniciar sesión nuevamente
+                        else:
+                            print("Opción no válida.")
                         print("")
                         break
                     else:

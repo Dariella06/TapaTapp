@@ -10,23 +10,10 @@ class User:
         self.password = password
         self.email = email
 
-class Child:
-    def __init__(self, id, name, sleep_average, treatment_id, time):
-        self.id = id
-        self.name = name
-        self.sleep_average = sleep_average
-        self.treatment_id = treatment_id
-        self.time = time
-
 # Datos de ejemplo
 users = [
     User(id=1, username="mare", password="12345", email="prova@gmail.com"),
     User(id=2, username="pare", password="123", email="prova2@gmail.com")
-]
-
-children = [
-    Child(id=1, name="Carol Child", sleep_average=8, treatment_id=1, time=6),
-    Child(id=2, name="Jaco Child", sleep_average=10, treatment_id=2, time=6)
 ]
 
 # Clases DAO
@@ -45,6 +32,9 @@ class UserDAO:
         new_user = User(id=new_id, username=username, password=password, email=email)
         self.users.append(new_user)
         return new_user
+
+# Token de autenticación (en un caso real, deberías usar un sistema más seguro)
+TOKEN_VALID = "secret123"
 
 @app.route('/register', methods=['POST'])
 def register():
@@ -81,16 +71,27 @@ def login():
         return jsonify({
             "message": "Login exitoso",
             "user_info": user.__dict__,
-            "children": [{"id": child.id, "child_name": child.name, "sleep_average": child.sleep_average, "treatment_id": child.treatment_id, "time": child.time} for child in children],  # Información completa de los niños
-            "taps": [{"id": 1, "child_id": 1, "init": "2024-12-18T19:42:43", "end": "2024-12-18T20:42:43"},
-                      {"id": 2, "child_id": 2, "init": "2024-12-18T21:42:43", "end": "2024-12-18T22:42:43"}]  # Ejemplo de taps
+            "token": TOKEN_VALID,  # Devuelve el token al usuario
+            "children": [{"id": 1, "child_name": "Carol Child", "sleep_average": 8, "treatment_id": 1, "time": 6},
+                         {"id": 2, "child_name": "Jaco Child", "sleep_average": 10, "treatment_id": 2, "time": 6}],  # Ejemplo de niños
+            "taps": [{"id": 1, "child_id": 1, "status": "sleep"}, {"id": 2, "child_id": 2, "status": "awake"}]  # Ejemplo de taps
         }), 200
     else:
         return jsonify({"error": "Usuario o contraseña incorrectos"}), 401
 
+@app.route('/protected', methods=['GET'])
+def protected():
+    # Obtener el token del header
+    auth_header = request.headers.get('Authorization')
+
+    # Verificar si el token es correcto
+    if not auth_header or auth_header.split(" ")[1] != TOKEN_VALID:
+        return jsonify({'error': 'Acceso no autorizado'}), 401
+
+    return jsonify({"message": "Acceso permitido"}), 200
+
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port=10050)
-
 
 # TIENE QUE DEVOLVER UN TOKEN Y METODO POST
 # Podemos poner un usuario y un codigo y tal
