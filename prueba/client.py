@@ -2,12 +2,18 @@ import requests
 
 # Función para registrar un nuevo usuario
 def register_user(username, password, email):
-    response = requests.post('http://localhost:10050/register', json={"username": username, "password": password, "email": email})
+    response = requests.post('http://localhost:5000/register', json={"username": username, "password": password, "email": email})
     return response
 
 # Función para autenticar al usuario
 def authenticate_user(username, password):
-    response = requests.post('http://localhost:10050/login', json={"username": username, "password": password})
+    response = requests.post('http://localhost:5000/login', json={"username": username, "password": password})
+    return response
+
+# Función para validar el token y continuar la sesión
+def validate_token(token):
+    headers = {'Authorization': token}
+    response = requests.post('http://localhost:5000/validate_token', headers=headers)
     return response
 
 # Función para mostrar la información del usuario
@@ -33,6 +39,7 @@ def list_children_with_taps(children, taps):
 
 # Función principal
 def main():
+    token = None  
     while True:
         print("Selecciona una opción:")
         print("1. Registrarse")
@@ -43,13 +50,12 @@ def main():
         print("")
         
         if option == "1":
-            # Registro de usuario
             print("")
             username = input("Introduce tu nombre de 👤: ")
             password = input("🙊 Introduce tu password 🙊: ")
             email = input("Introduce tu correo 💌: ")
             print("")
-            
+
             response = register_user(username, password, email)
             if response.status_code == 201:
                 print("Usuario registrado exitosamente!")
@@ -58,14 +64,14 @@ def main():
                 print(response.json().get("error", "Error al registrar el usuario."))
         
         elif option == "2":
-            # Inicio de sesión
             username = input("Introduce tu nombre de 👤: ")
             password = input("🙊 Introduce tu password 🙊: ")
             response = authenticate_user(username, password)
             print("")
-            
+
             if response.status_code == 200:
                 data = response.json()
+                token = data.get('token')
                 print(f"💖 Bienvenido💖, {data['user_info']['username']}!")
                 print("Elige una de las opciones que tenemos para que puedas ver la funcionalidad del TapaTapp💖")
                 print(" ")
@@ -82,12 +88,10 @@ def main():
                     if option == "1":
                         show_user_info(data['user_info'])
                     elif option == "2":
-                        list_children_with_taps(data['children'], data['taps'])
+                        list_children_with_taps(data.get('children', []), data.get('taps', []))
                     elif option == "3":
                         print("")
                         print("Cerrando Sesión...")
-                        
-                        # Mostrar opciones después de cerrar sesión
                         print("")
                         print("Elige una opción:")
                         print("1. Continuar la sesión")
@@ -96,8 +100,16 @@ def main():
                         option = input("Selecciona una opción: ")
                         if option == "1":
                             print("")
-                            print("Volviendo a la sesión...")
-                            break  # Volver al bucle de opciones de usuario
+                            print("Verificando sesión...")
+                            response = validate_token(token)
+                            if response.status_code == 200:
+                                data = response.json()
+                                print(f"Sesión reanudada para {data['user_info']['username']}.")
+                                break 
+                            else:
+                                print("El token ha expirado o es inválido. Por favor, inicia sesión nuevamente.")
+                                token = None
+                                break
                         elif option == "2":
                             print("")
                             print("Volviendo al menú principal...")
