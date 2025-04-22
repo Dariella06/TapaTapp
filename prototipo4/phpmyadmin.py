@@ -31,7 +31,7 @@ class DAOUser:
             self.cursor.close()
         if self.connection:
             self.connection.close()
-
+#NO BORRAR(SOY IMBECIL Y SE ME OLVIDA LO QUE HICE)
 if __name__ == "__main__":
     dao = DAOUser()
     users = dao.get_all_users()
