@@ -37,3 +37,7 @@ A continuación se listan algunas de las afirmaciones (assertions) más comunes 
 
 - `assertRaises(Error, función)`  
   Verifica que se lance una excepción al ejecutar la función
+
+## Ejercicios
+[Ejercicio 3](testsuma.py)
+[Ejercicio 4](testfuncions.py)
