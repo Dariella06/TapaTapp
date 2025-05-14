@@ -175,3 +175,14 @@ class DAOTreatment(DAOBase):
         except mysql.connector.Error as err:
             print(f"Error al agregar el tratamiento: {err}")
             return None
+        
+    def get_treatment_by_id(self, treatment_id):
+        if not self.cursor:
+            return None
+        query = "SELECT * FROM Treatment WHERE id = %s"
+        try:
+            self.cursor.execute(query, (treatment_id,))
+            return self.cursor.fetchone()
+        except mysql.connector.Error as err:
+            print(f"Error al obtener el tratamiento: {err}")
+            return None

@@ -1,4 +1,4 @@
-from ServerDAOS import DAOUser, DAOChild  # Importar DAOUser y DAOChild
+from ServerDAOS import DAOUser, DAOChild, DAOTreatment  # Importar DAOUser, DAOChild y DAOTreatment
 
 def show_user_info(user):
     print("\nInformación del usuario:")
@@ -6,9 +6,12 @@ def show_user_info(user):
     print(f"Nombre de usuario: {user['username']}")
     print(f"Correo electrónico: {user['email']}")
 
-def show_children_info(user_id):
+def show_children_and_treatments(user_id):
     child_dao = DAOChild()  # Crear una instancia de DAOChild
-    children = child_dao.get_all_children()  # Obtener todos los niños
+    treatment_dao = DAOTreatment()  # Crear una instancia de DAOTreatment
+
+    # Obtener todos los niños
+    children = child_dao.get_all_children()
     child_dao.close_connection()
 
     # Filtrar los niños asociados al usuario
@@ -18,8 +21,17 @@ def show_children_info(user_id):
         print("\nInformación de los niños asociados:")
         for child in user_children:
             print(f"ID: {child['id']}, Nombre: {child['name']}, Edad: {child['age']}")
+
+            # Obtener el tratamiento asociado al niño
+            treatment = treatment_dao.get_treatment_by_id(child['treatment_id'])
+            if treatment:
+                print(f"  Tratamiento asociado: {treatment['name']} - {treatment['description']}")
+            else:
+                print("  No hay tratamiento asociado.")
     else:
         print("\nNo hay niños asociados a este usuario.")
+
+    treatment_dao.close_connection()
 
 if __name__ == "__main__":
     dao = DAOUser()
@@ -37,14 +49,14 @@ if __name__ == "__main__":
         while True:
             print("\nOpciones:")
             print("1. Ver información del usuario")
-            print("2. Ver información de los niños asociados")
+            print("2. Ver información de los niños y tratamientos asociados")
             print("3. Salir")
             option = input("Seleccione una opción: ")
 
             if option == "1":
                 show_user_info(user)
             elif option == "2":
-                show_children_info(user['id'])
+                show_children_and_treatments(user['id'])
             elif option == "3":
                 print("Saliendo...")
                 break
